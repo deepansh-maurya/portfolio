@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Retro Terminal Colors */
+  --terminal-green: hsl(122, 100%, 50%);
+  --terminal-amber: hsl(38, 100%, 50%);
+  --terminal-cyan: hsl(180, 100%, 50%);
+  --terminal-pink: hsl(328, 100%, 54%);
+  --crt-black: hsl(0, 0%, 4%);
+  --crt-dark: hsl(0, 0%, 10%);
+  --crt-gray: hsl(0, 0%, 20%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-mono antialiased;
+    background: var(--crt-black);
+    color: var(--terminal-green);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .crt-screen {
+    background: radial-gradient(ellipse at center, var(--crt-dark) 0%, var(--crt-black) 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .crt-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsla(122, 100%, 50%, 0.03) 2px,
+      hsla(122, 100%, 50%, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  .crt-screen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--terminal-green), transparent);
+    animation: scanline 2s linear infinite;
+    opacity: 0.1;
+    z-index: 11;
+  }
+  
+  .tab-button {
+    transition: all 0.3s ease;
+    border: 1px solid var(--crt-gray);
+    position: relative;
+    background: var(--crt-dark);
+    color: var(--terminal-green);
+  }
+  
+  .tab-button.active {
+    background: hsla(122, 100%, 50%, 0.1);
+    border-color: var(--terminal-green);
+    box-shadow: 0 0 10px hsla(122, 100%, 50%, 0.3);
+  }
+  
+  .tab-button:hover {
+    border-color: var(--terminal-green);
+    box-shadow: 0 0 5px hsla(122, 100%, 50%, 0.2);
+  }
+  
+  .tech-logo {
+    transition: all 0.3s ease;
+    filter: grayscale(1) brightness(0.7);
+  }
+  
+  .tech-logo:hover {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px hsla(122, 100%, 50%, 0.4);
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  
+  .project-card {
+    background: hsla(0, 0%, 10%, 0.8);
+    border: 1px solid var(--crt-gray);
+    transition: all 0.3s ease;
+  }
+  
+  .project-card:hover {
+    border-color: var(--terminal-cyan);
+    box-shadow: 0 0 15px hsla(180, 100%, 50%, 0.2);
+  }
+  
+  .content-area {
+    min-height: 500px;
+  }
+  
+  .terminal-green {
+    color: var(--terminal-green);
+  }
+  
+  .terminal-amber {
+    color: var(--terminal-amber);
+  }
+  
+  .terminal-cyan {
+    color: var(--terminal-cyan);
+  }
+  
+  .terminal-pink {
+    color: var(--terminal-pink);
+  }
+  
+  .bg-terminal-green {
+    background-color: var(--terminal-green);
+  }
+  
+  .bg-terminal-amber {
+    background-color: var(--terminal-amber);
+  }
+  
+  .bg-terminal-cyan {
+    background-color: var(--terminal-cyan);
+  }
+  
+  .bg-terminal-pink {
+    background-color: var(--terminal-pink);
+  }
+  
+  .bg-crt-black {
+    background-color: var(--crt-black);
+  }
+  
+  .bg-crt-dark {
+    background-color: var(--crt-dark);
+  }
+  
+  .bg-crt-gray {
+    background-color: var(--crt-gray);
+  }
+  
+  .border-crt-gray {
+    border-color: var(--crt-gray);
+  }
+}
+
+@layer utilities {
+  @keyframes glow {
+    from { 
+      text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+    }
+    to { 
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+  }
+  
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+  
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-flicker {
+    animation: flicker 0.15s infinite linear;
+  }
+  
+  .animate-scanline {
+    animation: scanline 2s linear infinite;
+  }
+}
