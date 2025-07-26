@@ -38,8 +38,9 @@ const defaultData: PortfolioData = {
   phone: "+1 (555) 123-4567",
   location: "San Francisco, CA",
   skills: [
-    "javascript", "typescript", "react", "nodejs", "python", "postgresql",
-    "docker", "amazonwebservices", "git", "mongodb", "redux", "tailwindcss"
+    "typescript", "nodejs", "remix", "react", "kafka", "redis", "docker", 
+    "javascript", "postgresql", "mysql", "mongodb", "express", "prisma", 
+    "mongoose", "git", "golang", "turborepo"
   ],
   experience: [
     {
@@ -121,14 +122,19 @@ const techIconMap: Record<string, string> = {
   typescript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
   react: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   nodejs: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  postgresql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  remix: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/remix/remix-original.svg",
+  kafka: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
+  redis: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
   docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-  amazonwebservices: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
-  git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  postgresql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  mysql: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   mongodb: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  redux: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
-  tailwindcss: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+  express: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  prisma: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+  mongoose: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg",
+  git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  golang: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+  turborepo: "https://raw.githubusercontent.com/vercel/turbo/main/docs/public/images/docs/repo/repo-hero-logo-dark.svg"
 };
 
 const getTechColor = (tech: string) => {
