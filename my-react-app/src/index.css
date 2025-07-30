@@ -60,12 +60,12 @@
 }
 
 @layer base {
-  * {
+  /* * {
     @apply border-border;
-  }
+  } */
 
   body {
-    @apply font-mono antialiased;
+    /* @apply font-mono antialiased; */
     background: var(--crt-black);
     color: var(--terminal-green);
     font-family: 'JetBrains Mono', 'Courier New', monospace;
